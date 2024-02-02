@@ -1,0 +1,15 @@
+@keyframes moveText {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100vw);
+    }
+  }
+  
+  .animated-text p {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: moveText 10s linear infinite; /* Adjust the duration and timing function as needed */
+  }
