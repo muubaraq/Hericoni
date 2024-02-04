@@ -32,7 +32,16 @@ const  Music = () => {
           getMusicList()
         }, [MusicCollectionRef])
        //drop
-      
+      //  const [showLinks, setShowLinks] = useState(false);
+
+      //  const handleDropdownToggle = () => {
+      //    setShowLinks(!showLinks);
+      //  };
+      const [selectedDropdown, setSelectedDropdown] = useState(null);
+
+  const handleDropdownToggle = (index) => {
+    setSelectedDropdown(selectedDropdown === index ? null : index);
+  };
   return (
     <>
     <section id="Music" className="my-12 ">
@@ -63,8 +72,36 @@ const  Music = () => {
                         </div>
                         
                         <div className="music-link flex">
-                        <a href={music.Link} className="text-[#fff]"><img src={music.SpotifyIcon} alt="Spotify icon by Icons8"/></a>
-                        <a href={music.Link2} className="text-[#fff]"><img src={music.AppleIcon} alt="Apple Music icon by Icons8"/></a>
+                             <div className="dropdown-container flex flex-col justify-center items-center">
+                              <button  onClick={() => handleDropdownToggle(index)} className="text-[#fff] font-primaryFont border border-[#fff] py-2 px-8 hover:bg-[#fff] hover:text-oxBlood transition mb-4">
+                                Show Links
+                              </button>
+                              {selectedDropdown === index && (
+                                <div className="dropdown-links">
+                                  <ul className="font-primaryFont">
+                                  <a href={music.Link} className="text-[#fff] flex items-center gap-2">
+                                    <img src={music.SpotifyIcon} alt="Spotify icon by Icons8" /><li>Play</li>
+                                  </a>
+                                  <a href={music.Link2} className="text-[#fff]  flex items-center gap-2">
+                                    <img src={music.AppleIcon} alt="Apple Music icon by Icons8" />
+                                    <li>Play</li>
+                                  </a>
+                                  <a href={music.Link3} className="text-[#fff]  flex items-center gap-2">
+                                    <img src={music.AudiomackIcon} alt="Audiomack icon by Icons8" />
+                                    <li>Play</li>
+                                  </a>
+                                  <a href={music.Link4} className="text-[#fff]  flex items-center gap-2">
+                                    <img src={music.BoomIcon} alt="Boomplay icon by Icons8" />
+                                    <li>Play</li>
+                                  </a>
+                                  <a href={music.Link5} className="text-[#fff]  flex items-center gap-2">
+                                    <img src={music.YoutubeMusicIcon} alt="Boomplay icon by Icons8" />
+                                    <li>Play</li>
+                                  </a>
+                                  </ul>
+                                </div>
+                              )}
+                            </div>
                         </div>
                       </div>
                     </div>

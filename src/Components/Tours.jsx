@@ -7,7 +7,7 @@ const Tours = () => {
         <div className="font-headerFont text-[#fff] lg:text-6xl text-3xl text-center">
                 <h2>Tour</h2>
         </div>
-        <div className="p-text mt-5 animated-text">
+        <div className="p-text mt-5 animated-text overflow-hidden">
             <p className="text-[#fff] font-primaryFont text-center md:text-2xl text-xl">Coming soon...</p>
         </div>
     </section>

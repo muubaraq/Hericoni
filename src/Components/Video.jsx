@@ -39,7 +39,7 @@ const Video = () => {
    
   return (
     <>
-        <section className="my-9 border border-b-oxBlood" id="Videos"> 
+        <section className="my-9 border border-b-oxBlood" id="Video"> 
             <div>
               <Swiper
                 slidesPerView={1}  // Default to 1 slide on small screens
