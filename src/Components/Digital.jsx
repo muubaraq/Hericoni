@@ -1,11 +1,14 @@
+import MusicPay from "./MusicPay";
 
 
 const Digital = () => {
+  
   return (
-    <div>Digital
-        jhmngdnfhnzhv
-    </div>
-  )
-}
+   
+    <> 
+     <MusicPay/>
+    </>
+  );
+};
 
-export default Digital
+export default Digital;
