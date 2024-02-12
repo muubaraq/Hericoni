@@ -1,76 +1,68 @@
-
 import { useState } from 'react';
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
 
-const MusicPay = () => {
-  const initialFormData = {
-    fullName: '',
-    email: '',
-    phoneNumber: '',
-    trackName: '',
-    amount: ''
-  };
-
-  const [formData, setFormData] = useState(initialFormData);
-  const [showThankYouMessage, setShowThankYouMessage] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [showGenerateButton, setShowGenerateButton] = useState(true);
-  const [showPaymentButton, setShowPaymentButton] = useState(false);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Check if amount is less than 2000
-    if (formData.amount < 2000) {
-      alert('Amount must be at least 2000');
-      return;
-    }
-    // Show the payment button
-    // setLoading(true);
-    // setTimeout(() => {
-    //   setLoading(false);
-    //   setShowPaymentButton(true);
-    // }, 2000); // 2 seconds delay before showing payment button
-    handleShowPayment();
-  };
-  const handleShowPayment = () => {
-            setLoading(true);
-            setTimeout(() => {
-              setShowGenerateButton(false);
-              setShowPaymentButton(true);
-              setLoading(false);
-            }, 2000); // 2 seconds delay before showing payment button
-          };
-
-  const handlePaymentSuccess = (response) => {
-    console.log(response)
-    if(response.status !== "successful"){
-      console.log("Failed Transaction")
-    } else {
-      console.log("Success");
-      setShowThankYouMessage(true); // Show thank you message
-    }
-    closePaymentModal(); // this will close the modal programmatically
-  };
-
-  const handlePaymentClose = () => {
-    console.log("User closed modal");
-    // setShowThankYouMessage(true); // Show thank you message
-  };
-
+const SupportArtist = () => {
+    const initialFormData = {
+        fullName: '',
+        email: '',
+        phoneNumber: '',
+        amount: ''
+      };
+    
+      const [formData, setFormData] = useState(initialFormData);
+      const [showThankYouMessage, setShowThankYouMessage] = useState(false);
+      const [loading, setLoading] = useState(false);
+      const [showGenerateButton, setShowGenerateButton] = useState(true);
+      const [showPaymentButton, setShowPaymentButton] = useState(false);
+    
+      const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevData => ({
+          ...prevData,
+          [name]: value
+        }));
+      };
+    
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        // Check if amount is less than 2000
+        if (formData.amount < 2000) {
+          alert('Amount must be at least 2000');
+          return;
+        }
+      
+        handleShowPayment();
+      };
+      const handleShowPayment = () => {
+                setLoading(true);
+                setTimeout(() => {
+                  setShowGenerateButton(false);
+                  setShowPaymentButton(true);
+                  setLoading(false);
+                }, 2000); // 2 seconds delay before showing payment button
+              };
+    
+      const handlePaymentSuccess = (response) => {
+        console.log({response})
+        if(response.status !== "successful"){
+          console.log("Failed Transaction")
+        } else {
+          console.log("Success");
+          setShowThankYouMessage(true); // Show thank you message
+        }
+        closePaymentModal(); // this will close the modal programmatically
+      };
+    
+      const handlePaymentClose = () => {
+        console.log("User closed modal");
+       // setShowThankYouMessage(true); // Show thank you message
+      };
   return (
-    <section className="">
+    <>
+       <section className="">
       {showThankYouMessage && (
         <div className="min-h-screen flex flex-col justify-center items-center mt-2 bg-green-500 py-4 w-2/5 mx-auto text-[#fff] rounded text-center text-2xl ">
-          <p className="text-[green] text-xl">Thank you for the payment 🙂.</p>
-          <p>An 📨 Email with the music link will be sent to you soon.</p>
+          <p className="text-[green] text-xl">Thank you for your support 🙂.</p>
         </div>
       )}
       <div className={`support-track flex flex-col min-h-screen justify-center items-center font-primaryFont font-bold max-w-xl mx-auto ${showThankYouMessage ? 'hidden' : ''}`}>
@@ -102,15 +94,7 @@ const MusicPay = () => {
             onChange={handleInputChange}
             className="py-4 pl-3"
           />
-          <input
-            type="text"
-            name="trackName"
-            placeholder="Name of the Track"
-            value={formData.trackName}
-            onChange={handleInputChange}
-            required
-            className="py-4 pl-3"
-          />
+
           <input
             type="number"
             name="amount"
@@ -142,7 +126,7 @@ const MusicPay = () => {
               },
               customizations: {
                 title: 'Hericoni Music',
-                description: 'Payment for Support/music ',
+                description: 'Support Artist ',
                 logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
               },
               text: 'Link To Pay ',
@@ -153,7 +137,8 @@ const MusicPay = () => {
         )}
       </div>
     </section>
-  );
-};
+    </>
+  )
+}
 
-export default MusicPay;
+export default SupportArtist

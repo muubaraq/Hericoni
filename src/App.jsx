@@ -17,13 +17,13 @@ function App() {
 
         <main>
           <Routes>
-            <Route path="/Digital" element={<Digital />} />
             <Route path="/" element={<>
               <Video />
               <Music />
               <Tours />
               <Follow/>
             </>} />
+            <Route path="/Digital" element={<Digital />} />
           </Routes>
         </main>
       </>
