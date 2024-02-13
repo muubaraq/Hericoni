@@ -27,7 +27,7 @@ const Nav = () => {
    {/* a top of 16 default but will play round with it */}
    <div className="lg:hidden block absolute top-16 z-50 w-full left-0 right-0 bg-[#000] transition font-primaryFont min-h-screen text-[#fff]">
    <ul className="text-center text-xl p-20 font-primaryFont font-bold">
-        <Link to="#Video" onClick={ closeMobileMenu}> <li className="my-9 hover:text-oxBlood transition">Videos</li></Link> 
+        <Link to="/#Video" onClick={ closeMobileMenu}> <li className="my-9 hover:text-oxBlood transition">Videos</li></Link> 
          <Link href="/#Music" onClick={ closeMobileMenu}><li className="my-9 hover:text-oxBlood transition ">Music</li></Link>   
          <Link to="/Digital" onClick={ closeMobileMenu}><li className="my-9 transition hover:text-oxBlood">Digital Download</li></Link>
          <Link to="/#Gallery" onClick={ closeMobileMenu}><li className="my-9  transition hover:text-oxBlood" onClick={ closeMobileMenu}>Gallery</li></Link>
