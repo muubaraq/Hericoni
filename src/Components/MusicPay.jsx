@@ -141,7 +141,7 @@ const MusicPay = () => {
 
       {/* Payment Form */}
       <div className={`support-track flex flex-col min-h-screen justify-center text-sm items-center font-primaryFont font-bold max-w-xl mx-auto ${showThankYouMessage ? 'hidden' : ''}`}>
-        <p className="text-[white] mb-2 italic">Kindly fill the form and pay. An email with the music link will be sent to you</p>
+        <p className="text-[white] mb-2 italic text-center px-3">Kindly fill the form and pay. An email with the music link will be sent to you</p>
         <form className="flex flex-col w-full gap-3 px-4 shadow-md" onSubmit={handleSubmit} ref={form}>
          
           {/*  input fields here */}
