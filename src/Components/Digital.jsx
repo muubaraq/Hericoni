@@ -20,12 +20,12 @@ const Digital = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container  text-sm">
       <div className="text-center mt-10">
         <button className="text-oxBlood bg-[#fff] hover:bg-oxBlood hover:text-[#fff] transition py-2 px-4" onClick={handleDownloadMusic}>Download Music</button>
         <button className="text-oxBlood border border-[#000] bg-[#fff] hover:bg-oxBlood hover:text-[#fff] transition py-2 px-4 ml-4" onClick={handleSupportArtist}>Support Artist</button>
       </div>
-      {showSupportArtist && <SupportArtist />}
+      {showSupportArtist && <SupportArtist  />}
       {showMusicPay && <MusicPay />}
       {/* {thankYouMessage && <div className="text-center text-[#fff] my-4 text-green-500 font-bold">{thankYouMessage}</div>} */}
       {/* <MusicPay/> */}

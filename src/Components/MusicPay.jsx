@@ -1,5 +1,6 @@
-import  { useState } from 'react';
+import  { useState, useRef } from 'react';
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
+import emailjs from '@emailjs/browser';
 
 const MusicPay = () => {
   const initialFormData = {
@@ -34,6 +35,7 @@ const MusicPay = () => {
     }
   
     handleShowPayment();
+    sendEmail()
   };
 
   const handleBankTransferAndSubmit = (e) => {
@@ -86,6 +88,28 @@ const MusicPay = () => {
     setShowBankTransferPopup(false);
   };
 
+
+  const form = useRef();
+
+  const sendEmail = () => {
+   // e.preventDefault();
+
+    emailjs
+      .sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, form.current, {
+        publicKey: import.meta.env.VITE_EMAIL_PUBKEY,
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          console.log("message sent")
+          // e.target.reset()
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
+
   return (
     <section className="">
       {/* Thank You Message */}
@@ -116,8 +140,9 @@ const MusicPay = () => {
       )}
 
       {/* Payment Form */}
-      <div className={`support-track flex flex-col min-h-screen justify-center items-center font-primaryFont font-bold max-w-xl mx-auto ${showThankYouMessage ? 'hidden' : ''}`}>
-        <form className="flex flex-col w-full gap-3 px-4 shadow-md" onSubmit={handleSubmit}>
+      <div className={`support-track flex flex-col min-h-screen justify-center text-sm items-center font-primaryFont font-bold max-w-xl mx-auto ${showThankYouMessage ? 'hidden' : ''}`}>
+        <p className="text-[white] mb-2 italic">Kindly fill the form and pay. An email with the music link will be sent to you</p>
+        <form className="flex flex-col w-full gap-3 px-4 shadow-md" onSubmit={handleSubmit} ref={form}>
          
           {/*  input fields here */}
           <input
@@ -174,7 +199,7 @@ const MusicPay = () => {
         {showPaymentButton && (
           <FlutterWaveButton className="mt-2 bg-oxBlood py-4 w-2/5 mx-auto text-[#fff] rounded hover:bg-oxBlood hover:border hover:border-[#fff] transition"
             {...{
-              public_key: 'FLWPUBK_TEST-7609d21ebb68807d066bcb4944ab096d-X',
+              public_key: import.meta.env.VITE_FLUTTER_PUKEY,
               tx_ref: Date.now(),
               amount: formData.amount,
               currency: 'NGN',

@@ -2,6 +2,7 @@ import { FaSquareInstagram } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
 import { FaCopyright } from "react-icons/fa6";
+import { FaWhatsapp } from "react-icons/fa6";
 
 
 const Follow = () => {
@@ -17,7 +18,9 @@ const Follow = () => {
             <a href="https://wwww.youtube.com/@hericoni"><FaYoutube/></a>
 
         </div>
-        <div className="copyright text-[#fff] font-primaryFont ">
+        <p className="text-[white] max-w-2xl mx-auto text-center mt-2 font-bold flex items-center justify-center gap-2 md:text-lg text-sm">PHONE & <FaWhatsapp />WHATSAPP
+: 08023641257</p>
+        <div className="copyright text-[#fff] font-primaryFont text-xs">
             <div className="copyright-icon flex justify-center items-center gap-2 mt-4 font-bold">
             <FaCopyright />
             <p className="uppercase">2024 Hericoni Music. All rights reserved</p>
