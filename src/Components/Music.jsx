@@ -63,7 +63,7 @@ const  Music = () => {
                 {MusicList.map((music, index) => (
                   <SwiperSlide key={index}>
                     <div className=" flex flex-col justify-center items-center">
-                      <div className="wrapper w-[496px]">
+                      <div className="wrapper w-[100%] md:w-[496px]">
                         <img src={music.ImgUrl} className="max-w-[100%]" alt="music cover art"/>
                       </div>
                       <div>

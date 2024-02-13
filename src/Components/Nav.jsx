@@ -20,18 +20,19 @@ const Nav = () => {
        }
     },[location.hash])
   //const location = use
+  const closeMobileMenu = () => setClick(false);
 
    // Mobile menu
    const content = <>
    {/* a top of 16 default but will play round with it */}
    <div className="lg:hidden block absolute top-16 z-50 w-full left-0 right-0 bg-[#000] transition font-primaryFont min-h-screen text-[#fff]">
    <ul className="text-center text-xl p-20 font-primaryFont font-bold">
-        <Link to="#Video"> <li className="my-9 hover:text-oxBlood transition">Videos</li></Link> 
-         <Link href="/#Music"><li className="my-9 hover:text-oxBlood transition ">Music</li></Link>   
-         <Link to="/Digital"><li className="my-9 transition hover:text-oxBlood">Digital Download</li></Link>
-         <Link to="/#Gallery"><li className="my-9  transition hover:text-oxBlood">Gallery</li></Link>
-         <Link href="/#Tour"><li className="my-9  transition hover:text-oxBlood">Tour</li></Link>
-         <Link to="/#Follow"><li className="my-9  transition hover:text-oxBlood">Follow</li></Link>
+        <Link to="#Video" onClick={ closeMobileMenu}> <li className="my-9 hover:text-oxBlood transition">Videos</li></Link> 
+         <Link href="/#Music" onClick={ closeMobileMenu}><li className="my-9 hover:text-oxBlood transition ">Music</li></Link>   
+         <Link to="/Digital" onClick={ closeMobileMenu}><li className="my-9 transition hover:text-oxBlood">Digital Download</li></Link>
+         <Link to="/#Gallery" onClick={ closeMobileMenu}><li className="my-9  transition hover:text-oxBlood" onClick={ closeMobileMenu}>Gallery</li></Link>
+         <Link to="/#Tour" onClick={ closeMobileMenu}><li onClick={ closeMobileMenu} className="my-9  transition hover:text-oxBlood">Tour</li></Link>
+         <Link to="/#Follow" onClick={ closeMobileMenu}><li className="my-9  transition hover:text-oxBlood">Follow</li></Link>
       
       </ul>
    </div>
