@@ -1,5 +1,4 @@
-
-import { useState } from 'react';
+import  { useState } from 'react';
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
 
 const MusicPay = () => {
@@ -16,6 +15,7 @@ const MusicPay = () => {
   const [loading, setLoading] = useState(false);
   const [showGenerateButton, setShowGenerateButton] = useState(true);
   const [showPaymentButton, setShowPaymentButton] = useState(false);
+  const [showBankTransferPopup, setShowBankTransferPopup] = useState(false); 
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -32,22 +32,30 @@ const MusicPay = () => {
       alert('Amount must be at least 2000');
       return;
     }
-    // Show the payment button
-    // setLoading(true);
-    // setTimeout(() => {
-    //   setLoading(false);
-    //   setShowPaymentButton(true);
-    // }, 2000); // 2 seconds delay before showing payment button
+  
     handleShowPayment();
   };
+
+  const handleBankTransferAndSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.fullName || !formData.email || !formData.trackName) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+    handleBankTransferClick();
+    handleSubmit(e);
+  };
+
+  
+
   const handleShowPayment = () => {
-            setLoading(true);
-            setTimeout(() => {
-              setShowGenerateButton(false);
-              setShowPaymentButton(true);
-              setLoading(false);
-            }, 2000); // 2 seconds delay before showing payment button
-          };
+    setLoading(true);
+    setTimeout(() => {
+      setShowGenerateButton(false);
+      setShowPaymentButton(true);
+      setLoading(false);
+    }, 2000);
+  };
 
   const handlePaymentSuccess = (response) => {
     console.log(response)
@@ -55,27 +63,63 @@ const MusicPay = () => {
       console.log("Failed Transaction")
     } else {
       console.log("Success");
-      setShowThankYouMessage(true); // Show thank you message
+      setShowThankYouMessage(true);
     }
-    closePaymentModal(); // this will close the modal programmatically
+    closePaymentModal();
   };
 
   const handlePaymentClose = () => {
     console.log("User closed modal");
-    // setShowThankYouMessage(true); // Show thank you message
+  };
+
+  const handleBankTransferClick = () => {
+    setShowBankTransferPopup(true); 
+  };
+
+  const handleConfirmPayment = () => {
+   
+    setShowThankYouMessage(true);
+    setShowBankTransferPopup(false);
+  };
+
+  const handleClosePopup = () => {
+    setShowBankTransferPopup(false);
   };
 
   return (
     <section className="">
+      {/* Thank You Message */}
       {showThankYouMessage && (
         <div className="min-h-screen flex flex-col justify-center items-center mt-2 bg-green-500 py-4 w-2/5 mx-auto text-[#fff] rounded text-center text-2xl ">
           <p className="text-[green] text-xl">Thank you for the payment 🙂.</p>
           <p>An 📨 Email with the music link will be sent to you soon.</p>
         </div>
       )}
+
+      {/* Bank Transfer Popup */}
+      {showBankTransferPopup && (
+        <div className="bg-[#000000e3] p-4 fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-opacity-50 font-primaryFont text-[white]">
+          <div className="bg-[black] p-6 rounded shadow-lg">
+          <button className="absolute top-2 right-2 text-[white]" onClick={handleClosePopup}>close</button>
+            <p className="text-xl ">Payment Details</p>
+            <p className="font-bold text-base mt-4">Account Name</p>
+            <small className="mb-3 block">Twenty Nine Twelve Resource Ltd</small>
+            <p className="font-bold text-base ">Account Number</p>
+            <small className="mb-3 block">2003663839</small>
+            <p className="font-bold  text-base">Bank</p>
+            <small  className="mb-3 block">Globus Bank</small>
+            <p className="font-bold text-base">Remark or Description</p>
+            <small className=" mb-3 block">Email addres used while filling the form page</small>
+            <button className="bg-[green] hover:bg-[#447c44e1] text-white px-4 py-2 rounded mt-4" onClick={handleConfirmPayment}>Confirm Payment</button>
+          </div>
+        </div>
+      )}
+
+      {/* Payment Form */}
       <div className={`support-track flex flex-col min-h-screen justify-center items-center font-primaryFont font-bold max-w-xl mx-auto ${showThankYouMessage ? 'hidden' : ''}`}>
         <form className="flex flex-col w-full gap-3 px-4 shadow-md" onSubmit={handleSubmit}>
-          {/* Input fields */}
+         
+          {/*  input fields here */}
           <input
             type="text"
             name="fullName"
@@ -121,9 +165,9 @@ const MusicPay = () => {
             required
             className="py-4 pl-3"
           />
-            {showGenerateButton && (
+          {showGenerateButton && (
             <button className="bg-oxBlood py-4 w-2/5 mx-auto text-[#fff] rounded hover:bg-oxBlood hover:border hover:border-[#fff] transition" type="button" onClick={handleSubmit}>
-               {loading ? 'Loading...' : 'Generate Payment Link'}
+               {loading ? 'Loading...' : 'Pay Online'}
              </button>
           )}
         </form>
@@ -142,7 +186,7 @@ const MusicPay = () => {
               },
               customizations: {
                 title: 'Hericoni Music',
-                description: 'Payment for Support/music ',
+                description: 'Payment for music ',
                 logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
               },
               text: 'Link To Pay ',
@@ -151,7 +195,13 @@ const MusicPay = () => {
             }}
           />
         )}
+        {/* Pay with Bank Transfer Button */}
+      {!showThankYouMessage && (
+        <button className="bg-oxBlood py-4 w-2/5 mx-auto text-[#fff] rounded hover:bg-oxBlood hover:border hover:border-[#fff] transition mt-2" onClick={handleBankTransferAndSubmit}>Pay with Bank Transfer</button>
+      )}
       </div>
+
+      
     </section>
   );
 };
