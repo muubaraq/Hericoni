@@ -22,8 +22,7 @@ const Follow = () => {
 : 08023641257</p>
         <div className="copyright text-[#fff] font-primaryFont text-xs">
             <div className="copyright-icon flex flex-col md:flex-row justify-center items-center gap-2 mt-4 font-bold">
-            <FaCopyright />
-            <p className="uppercase">2024 Hericoni Music. All rights reserved |</p>
+            <p className="uppercase flex items-center gap-2"><FaCopyright />2024 Hericoni Music. All rights reserved |</p>
             <small className="text-[white]">Built by <a href="https://twitter.com/muubaraq" target="_blank" rel="noreferrer">muubaraq</a></small>
             </div>
         </div>
