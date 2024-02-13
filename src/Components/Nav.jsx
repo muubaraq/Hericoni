@@ -1,6 +1,6 @@
 import { Link, useLocation} from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import {GiHamburgerMenu} from 'react-icons/gi';
+import { GiHamburgerMenu } from "react-icons/gi";
 import {FaTimes} from 'react-icons/fa';
 //import AnchorLink from "react-anchor-link-smooth-scroll";
 
