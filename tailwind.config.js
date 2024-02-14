@@ -8,7 +8,8 @@ export default {
     extend: {},
     fontFamily: {
       'primaryFont': ['Open Sans', 'sans-serif'],
-      'headerFont' : [ 'Yellowtail', 'cursive']
+      'headerFont' : [ 'Helvetica Neue', 'Arial', 'sans-serif']
+      // 'headerFont' : [ 'Yellowtail', 'cursive']
     
    },
 

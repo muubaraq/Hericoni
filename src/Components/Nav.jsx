@@ -28,9 +28,9 @@ const Nav = () => {
    <div className="lg:hidden block absolute top-16 z-50 w-full left-0 right-0 bg-[#000] transition font-primaryFont min-h-screen text-[#fff]">
    <ul className="text-center text-xl p-20 font-primaryFont font-bold">
         <Link to="/#Video" onClick={ closeMobileMenu}> <li className="my-9 hover:text-oxBlood transition">Videos</li></Link> 
-         <Link href="/#Music" onClick={ closeMobileMenu}><li className="my-9 hover:text-oxBlood transition ">Music</li></Link>   
+         <Link to="/#Music" onClick={ closeMobileMenu}><li className="my-9 hover:text-oxBlood transition ">Music</li></Link>   
          <Link to="/Digital" onClick={ closeMobileMenu}><li className="my-9 transition hover:text-oxBlood">Digital Download</li></Link>
-         <Link to="/#Gallery" onClick={ closeMobileMenu}><li className="my-9  transition hover:text-oxBlood" onClick={ closeMobileMenu}>Gallery</li></Link>
+         <a href="https://www.instagram.com/hericoni_officialpage/" target="_blank" rel="noreferrer" onClick={ closeMobileMenu}><li className="my-9  transition hover:text-oxBlood" onClick={ closeMobileMenu}>Gallery</li></a>
          <Link to="/#Tour" onClick={ closeMobileMenu}><li onClick={ closeMobileMenu} className="my-9  transition hover:text-oxBlood">Tour</li></Link>
          <Link to="/#Follow" onClick={ closeMobileMenu}><li className="my-9  transition hover:text-oxBlood">Follow</li></Link>
       
@@ -51,7 +51,7 @@ const Nav = () => {
              <Link to="/#Video"><li className="transition hover:text-oxBlood flex items-center gap-2">Videos <span className="inline-block w-7 h-[2px] bg-[#fff]"></span></li></Link>
              <Link to="/#Music"><li className="transition hover:text-oxBlood flex items-center gap-2">Music <span className="inline-block w-7 h-[2px] bg-[#fff]"></span></li></Link>
              <Link  to="/Digital"><li className="transition hover:text-oxBlood flex items-center gap-2">Digital Download {' '}<span className="inline-block w-7 h-[2px] bg-[#fff]"></span></li></Link>
-             <Link to="/#Gallery"><li className="transition hover:text-oxBlood flex items-center gap-2">Gallery <span className="inline-block w-7 h-[2px] bg-[#fff]"></span></li></Link>
+             <a href="https://www.instagram.com/hericoni_officialpage/" target="_blank" rel="noreferrer"><li className="transition hover:text-oxBlood flex items-center gap-2">Gallery <span className="inline-block w-7 h-[2px] bg-[#fff]"></span></li></a>
              <Link to="/#Tour"><li className="transition hover:text-oxBlood flex items-center gap-2">Tour <span className="inline-block w-7 h-[2px] bg-[#fff]"></span></li></Link>
              <Link to="/#Follow"><li className="transition hover:text-oxBlood ">Follow</li></Link>
           </ul>

@@ -1,7 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import {db} from '../config/firebase';
-import {getDocs, collection} from 'firebase/firestore'
+import {getDocs, collection} from 'firebase/firestore';
+import { Link} from 'react-router-dom';
+import { FaDownload } from "react-icons/fa6";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -80,24 +82,26 @@ const  Music = () => {
                                 <div className="dropdown-links">
                                   <ul className="font-primaryFont">
                                   <a href={music.Link} className="text-[#fff] flex items-center gap-2">
-                                    <img src={music.SpotifyIcon} alt="Spotify icon by Icons8" /><li className="text-sm ">Play</li>
+                                    <img src={music.SpotifyIcon} alt="Spotify icon by Icons8" /><li className="text-sm ">Spotify</li>
                                   </a>
                                   <a href={music.Link2} className="text-[#fff]  flex items-center gap-2">
                                     <img src={music.AppleIcon} alt="Apple Music icon by Icons8" />
-                                    <li className="text-sm ">Play</li>
+                                    <li className="text-sm ">Apple Music</li>
                                   </a>
                                   <a href={music.Link3} className="text-[#fff]  flex items-center gap-2">
                                     <img src={music.AudiomackIcon} alt="Audiomack icon by Icons8" />
-                                    <li className="text-sm">Play</li>
+                                    <li className="text-sm">Audiomack</li>
                                   </a>
                                   <a href={music.Link4} className="text-[#fff]  flex items-center gap-2">
                                     <img src={music.BoomIcon} alt="Boomplay icon by Icons8" />
-                                    <li className="text-sm ">Play</li>
+                                    <li className="text-sm ">Boomplay</li>
                                   </a>
                                   <a href={music.Link5} className="text-[#fff]  flex items-center gap-2">
                                     <img src={music.YoutubeMusicIcon} alt="Boomplay icon by Icons8" />
-                                    <li className="text-sm ">Play</li>
+                                    <li className="text-sm ">Youtube Music</li>
                                   </a>
+                                  <Link to="/Digital"><li className="flex items-center justify-center gap-2 mt-2 text-oxBlood transition bg-[white] rounded text-center py-2 hover:bg-oxBlood hover:text-[white]">Digital Download <FaDownload />
+</li></Link>
                                   </ul>
                                 </div>
                               )}

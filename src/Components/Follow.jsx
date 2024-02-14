@@ -2,7 +2,9 @@ import { FaSquareInstagram } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
 import { FaCopyright } from "react-icons/fa6";
-import { FaWhatsapp } from "react-icons/fa6";
+import { FaTiktok } from "react-icons/fa6";
+
+// import { FaWhatsapp } from "react-icons/fa6";
 
 
 const Follow = () => {
@@ -16,10 +18,11 @@ const Follow = () => {
             <a href="https://www.instagram.com/hericoni_officialpage/"><FaSquareInstagram/></a>
             <a href="https://www.x.com/hericoni1"><FaXTwitter/></a>
             <a href="https://wwww.youtube.com/@hericoni"><FaYoutube/></a>
+            <a href="https://wwww.tiktok.com/@hericoni"><FaTiktok />
+</a>
 
         </div>
-        <p className="text-[white] max-w-2xl mx-auto text-center mt-2 font-bold flex items-center justify-center gap-2 md:text-lg text-sm">PHONE & <FaWhatsapp />WHATSAPP
-: 08023641257</p>
+        <p className="text-[white] max-w-2xl mx-auto text-center mt-2 font-bold flex items-center justify-center gap-2 md:text-lg text-sm">EMAIL : hericoni@gmail.com</p>
         <div className="copyright text-[#fff] font-primaryFont text-xs">
             <div className="copyright-icon flex flex-col md:flex-row justify-center items-center gap-2 mt-4 font-bold">
             <p className="uppercase flex items-center gap-2"><FaCopyright />2024 Hericoni Music. All rights reserved |</p>
