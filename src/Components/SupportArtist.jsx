@@ -100,7 +100,7 @@ const SupportArtist = () => {
       .then(
         () => {
           console.log('SUCCESS!');
-          console.log("message sent")
+          console.log("message sent");
           // e.target.reset()
         },
         (error) => {

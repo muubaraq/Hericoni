@@ -80,11 +80,11 @@ const  Music = () => {
                                 <div className="dropdown-links">
                                   <ul className="font-primaryFont">
                                   <a href={music.Link} className="text-[#fff] flex items-center gap-2">
-                                    <img src={music.SpotifyIcon} alt="Spotify icon by Icons8" /><li className="text-sm">Play</li>
+                                    <img src={music.SpotifyIcon} alt="Spotify icon by Icons8" /><li className="text-sm ">Play</li>
                                   </a>
                                   <a href={music.Link2} className="text-[#fff]  flex items-center gap-2">
                                     <img src={music.AppleIcon} alt="Apple Music icon by Icons8" />
-                                    <li className="text-sm">Play</li>
+                                    <li className="text-sm ">Play</li>
                                   </a>
                                   <a href={music.Link3} className="text-[#fff]  flex items-center gap-2">
                                     <img src={music.AudiomackIcon} alt="Audiomack icon by Icons8" />
@@ -92,11 +92,11 @@ const  Music = () => {
                                   </a>
                                   <a href={music.Link4} className="text-[#fff]  flex items-center gap-2">
                                     <img src={music.BoomIcon} alt="Boomplay icon by Icons8" />
-                                    <li className="text-sm">Play</li>
+                                    <li className="text-sm ">Play</li>
                                   </a>
                                   <a href={music.Link5} className="text-[#fff]  flex items-center gap-2">
                                     <img src={music.YoutubeMusicIcon} alt="Boomplay icon by Icons8" />
-                                    <li className="text-sm">Play</li>
+                                    <li className="text-sm ">Play</li>
                                   </a>
                                   </ul>
                                 </div>
