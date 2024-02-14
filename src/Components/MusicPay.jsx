@@ -95,7 +95,7 @@ const MusicPay = () => {
    // e.preventDefault();
 
     emailjs
-      .sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, form.current, 'ht6rz0pM44a96u8kn', {
+      .sendForm('service_jxjii43', 'template_4koahbm', form.current, {
         publicKey:'ht6rz0pM44a96u8kn',
       })
       .then(
