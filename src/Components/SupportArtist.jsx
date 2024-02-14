@@ -95,7 +95,7 @@ const SupportArtist = () => {
    // e.preventDefault();
 
     emailjs
-      .sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID_2, form.current, import.meta.env.VITE_EMAIL_PUBKEY,
+      .sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID_2, form.current, import.meta.env.VITE_PUBLIC_KEY,
       )
       .then(
         () => {
