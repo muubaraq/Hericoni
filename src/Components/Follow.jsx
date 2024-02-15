@@ -18,7 +18,7 @@ const Follow = () => {
             <a href="https://www.instagram.com/hericoni_officialpage/"><FaSquareInstagram/></a>
             <a href="https://www.x.com/hericoni1"><FaXTwitter/></a>
             <a href="https://www.youtube.com/@hericoni"><FaYoutube/></a>
-            <a href="https://wwww.tiktok.com/@hericoni"><FaTiktok /></a>
+            <a href="https://www.tiktok.com/@hericoni"><FaTiktok /></a>
 
         </div>
         <p className="text-[white] max-w-2xl mx-auto text-center mt-2 font-bold flex items-center justify-center gap-2 md:text-lg text-sm">EMAIL : hericoni@gmail.com</p>
