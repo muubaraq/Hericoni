@@ -214,7 +214,7 @@ const MusicPay = () => {
                 description: 'Payment for music ',
                 logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
               },
-              text: 'Link To Pay ',
+              text: 'Click To Pay ',
               callback: handlePaymentSuccess,
               onClose: handlePaymentClose,
             }}
