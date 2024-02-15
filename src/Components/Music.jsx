@@ -100,7 +100,7 @@ const  Music = () => {
                                     <img src={music.YoutubeMusicIcon} alt="Boomplay icon by Icons8" />
                                     <li className="text-sm ">Youtube Music</li>
                                   </a>
-                                  <Link to="/Digital"><li className="flex items-center justify-center gap-2 mt-2 text-oxBlood transition bg-[white] rounded text-center py-2 hover:bg-oxBlood hover:text-[white]">Digital Download <FaDownload />
+                                  <Link to="/Digital"><li className="flex items-center justify-center gap-2 mt-2 bg-[black] transition text-[white] rounded text-center py-2 hover:bg-oxBlood hover:text-[white] text-sm">Digital Download <FaDownload />
 </li></Link>
                                   </ul>
                                 </div>

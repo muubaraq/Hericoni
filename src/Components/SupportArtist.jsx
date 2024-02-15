@@ -28,9 +28,9 @@ const SupportArtist = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Check if amount is less than 2000
-    if (formData.amount < 2000) {
-      alert('Amount must be at least 2000');
+    // Check if amount is less than 3000
+    if (formData.amount < 3000) {
+      alert('Amount must be at least 3000');
       return;
     }
   

@@ -42,7 +42,7 @@ const Nav = () => {
     <nav className="">
     <div className="h-10vh flex justify-between items-center z-50 lg:py-5 px-10 py-4 font-primaryFont text-[.85rem] text-[#fff]">
      <div className="lg:flex lg:flex-row flex flex-col flex-1   gap-4 mr-[20px] md:mr-0 shrink font-headerFont">
-       <a href="/" className="text-5xl hover:text-oxBlood transition ">Hericoni</a>
+       <a href="/" className="lg:text-5xl text-3xl hover:text-oxBlood transition ">Hericoni</a>
       
      </div>
      <div className=" items-center justify-end lg:block hidden">
@@ -61,7 +61,7 @@ const Nav = () => {
        {click && content}
      </div>
      <button className="block lg:hidden transition" onClick={handleClick}>
-       {click ? <FaTimes className="text-4xl"/> : <GiHamburgerMenu className="text-4xl"/>}
+       {click ? <FaTimes className="lg:text-4xl text-2xl"/> : <GiHamburgerMenu className="lg:text-4xl text-2xl"/>}
      </button>
     </div>
  </nav>

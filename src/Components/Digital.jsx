@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import MusicPay from './MusicPay';
 import SupportArtist from './SupportArtist';
+import { FaDownload } from "react-icons/fa6";
 
 const Digital = () => {
   const [showMusicPay, setShowMusicPay] = useState(false);
@@ -21,8 +22,8 @@ const Digital = () => {
 
   return (
     <div className="container  text-sm">
-      <div className="text-center mt-10">
-        <button className="text-oxBlood bg-[#fff] hover:bg-oxBlood hover:text-[#fff] transition py-2 px-4" onClick={handleDownloadMusic}>Download Music</button>
+      <div className="text-center mt-10 flex justify-center items-center">
+        <button className="flex items-center justify-center gap-2 text-oxBlood bg-[#fff] hover:bg-oxBlood hover:text-[#fff] transition py-2 px-4" onClick={handleDownloadMusic}>Download Music <FaDownload /></button>
         <button className="text-oxBlood border border-[#000] bg-[#fff] hover:bg-oxBlood hover:text-[#fff] transition py-2 px-4 ml-4" onClick={handleSupportArtist}>Support Artist</button>
       </div>
       {showSupportArtist && <SupportArtist  />}
