@@ -73,7 +73,7 @@ const  Music = () => {
                         <h3 className="text-[#fff] font-headerFont text-3xl text-center">{music.Title}</h3>
                         </div>
                         
-                        <div className="music-link flex">
+                        <div className="music-link flex justify-center items-center">
                              <div className="dropdown-container flex flex-col justify-center items-center">
                               <button  onClick={() => handleDropdownToggle(index)} className="text-[#fff] font-primaryFont border border-[#fff] py-2 px-8 hover:bg-[#fff] hover:text-oxBlood transition mb-4 text-sm">
                                 Play
