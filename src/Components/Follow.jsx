@@ -17,7 +17,7 @@ const Follow = () => {
         <div className="icons text-[#fff] max-w-2xl mx-auto flex items-center justify-center gap-5 md:text-3xl text-xl">
             <a href="https://www.instagram.com/hericoni_officialpage/"><FaSquareInstagram/></a>
             <a href="https://www.x.com/hericoni1"><FaXTwitter/></a>
-            <a href="https://wwww.youtube.com/@hericoni"><FaYoutube/></a>
+            <a href="https://www.youtube.com/@hericoni"><FaYoutube/></a>
             <a href="https://wwww.tiktok.com/@hericoni"><FaTiktok />
 </a>
 
