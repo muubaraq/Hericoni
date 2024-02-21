@@ -8,6 +8,8 @@ import { FaTiktok } from "react-icons/fa6";
 
 
 const Follow = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <>
      <footer id="Follow" className="py-9">
@@ -24,7 +26,7 @@ const Follow = () => {
         <p className="text-[white] max-w-2xl mx-auto text-center mt-2 font-bold flex items-center justify-center gap-2 md:text-lg text-sm">EMAIL : hericoni@gmail.com</p>
         <div className="copyright text-[#fff] font-primaryFont text-xs">
             <div className="copyright-icon flex flex-col md:flex-row justify-center items-center gap-2 mt-4 font-bold">
-            <p className="uppercase flex items-center gap-2"><FaCopyright />2024 Hericoni Music. All rights reserved |</p>
+            <p className="uppercase flex items-center gap-2"><FaCopyright /> {currentYear} Hericoni Music. All rights reserved |</p>
             <small className="text-[white]">Built by <a href="https://twitter.com/muubaraq" target="_blank" rel="noreferrer">muubaraq</a></small>
             </div>
         </div>
