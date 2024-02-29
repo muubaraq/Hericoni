@@ -1,6 +1,7 @@
 // App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./Components/Nav";
+import News from "./Components/News";
 import Video from "./Components/Video";
 import Music from "./Components/Music";
 import Tours from "./Components/Tours";
@@ -18,6 +19,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<>
+            <News/>
               <Video />
               <Music />
               <Tours />
