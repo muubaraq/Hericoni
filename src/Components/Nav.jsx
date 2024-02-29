@@ -40,7 +40,7 @@ const Nav = () => {
       
    </>
   return (
-    <nav className="fixed top-0 bg-[black] w-full ">
+    <nav className=" bg-[black] w-full ">
     <div className="h-10vh flex justify-between items-center z-50 lg:py-5 px-10 py-4 font-primaryFont text-[.85rem] text-[#fff]">
      <div className="lg:flex lg:flex-row flex flex-col flex-1   gap-4 mr-[20px] md:mr-0 shrink font-headerFont">
        <a href="/" className="lg:text-5xl text-3xl hover:text-oxBlood transition ">Hericoni</a>
