@@ -55,7 +55,7 @@ const Video = () => {
             // Set the music list state
             setVideoList(filteredData);
         } catch (error) {
-            console.error('Error getting latest music:', error);
+            console.error('Error getting latest video:', error);
         }
     };
 
