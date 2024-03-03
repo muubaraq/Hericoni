@@ -1,12 +1,13 @@
 // App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./Components/Nav";
-import News from "./Components/News";
+import Info from "./Components/Info";
 import Video from "./Components/Video";
 import Music from "./Components/Music";
 import Tours from "./Components/Tours";
 import Digital from "./Components/Digital";
 import Follow from "./Components/Follow";
+import News from "./Components/News";
 
 function App() {
   return (
@@ -19,13 +20,14 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<>
-            <News/>
+            <Info/>
               <Video />
               <Music />
               <Tours />
               <Follow/>
             </>} />
             <Route path="/Digital" element={<Digital />} />
+            <Route path="/News" element={<News />} />
           </Routes>
         </main>
       </>
