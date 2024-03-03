@@ -4,7 +4,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import {db} from '../config/firebase';
-import {getDocs, collection} from 'firebase/firestore'
+import {getDocs, collection, query, orderBy} from 'firebase/firestore'
 
 // Import Swiper styles
 import 'swiper/css';
@@ -19,24 +19,49 @@ const Video = () => {
    const [VideoList, setVideoList] = useState([]);
    const VideoCollectionRef = collection(db, "Videos")
    
-  useEffect(()=>{
-    const getVideoList = async ()=>{
-      //READ THE DATA
-      // SET THE VIDEO LIST
-      try{
-      const data = await getDocs(VideoCollectionRef)
-      const filteredData = data.docs.map((doc)=>({
-        ...doc.data(),
-         id: doc.id
-      }))
-      setVideoList(filteredData)
-         } catch (err) {
-          console.error(err)
-         }
-      };
-      getVideoList()
-    }, [VideoCollectionRef])
-   
+  // useEffect(()=>{
+  //   const getVideoList = async ()=>{
+  //     //READ THE DATA
+  //     // SET THE VIDEO LIST
+  //     try{
+  //     const data = await getDocs(VideoCollectionRef)
+  //     const filteredData = data.docs.map((doc)=>({
+  //       ...doc.data(),
+  //        id: doc.id
+  //     }))
+  //     setVideoList(filteredData)
+  //        } catch (err) {
+  //         console.error(err)
+  //        }
+  //     };
+  //     getVideoList()
+  //   }, [VideoCollectionRef])
+
+  useEffect(() => {
+    const getVideoList = async () => {
+        try {
+            // Query Firestore for music, ordering by timestamp in ascending order
+            const querySnapshot = await getDocs(query(
+                VideoCollectionRef,
+                orderBy('addedAt', 'desc')
+            ));
+
+            // Map query snapshot to array of music items
+            const filteredData = querySnapshot.docs.map((doc) => ({
+                ...doc.data(),
+                id: doc.id
+            }));
+
+            // Set the music list state
+            setVideoList(filteredData);
+        } catch (error) {
+            console.error('Error getting latest music:', error);
+        }
+    };
+
+    getVideoList();
+}, [VideoCollectionRef]);
+
   return (
     <>
         <section className="my-9 border border-b-oxBlood" id="Video"> 

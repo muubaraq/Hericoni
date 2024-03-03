@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import {db} from '../config/firebase';
-import {getDocs, collection} from 'firebase/firestore';
+import {getDocs, collection, query, orderBy} from 'firebase/firestore';
 import { Link} from 'react-router-dom';
 import { FaDownload } from "react-icons/fa6";
 
@@ -16,23 +16,54 @@ const  Music = () => {
     const [MusicList, setMusicList] = useState([]);
     const MusicCollectionRef = collection(db, "Music");
 
-    useEffect(()=>{
-        const getMusicList = async ()=>{
-          //READ THE DATA
-          // SET THE VIDEO LIST
-          try{
-          const data = await getDocs(MusicCollectionRef)
-          const filteredData = data.docs.map((doc)=>({
-            ...doc.data(),
-             id: doc.id
-          }))
-          setMusicList(filteredData)
-             } catch (err) {
-              console.error(err)
-             }
-          };
-          getMusicList()
-        }, [MusicCollectionRef])
+    // useEffect(()=>{
+    //     const getMusicList = async ()=>{
+    //       //READ THE DATA
+    //       // SET THE MUSIC LIST
+    //       try{
+    //       const data = await getDocs(MusicCollectionRef)
+    //       const filteredData = data.docs.map((doc)=>({
+    //         ...doc.data(),
+    //          id: doc.id
+    //       }))
+    //       setMusicList(filteredData)
+    //          } catch (err) {
+    //           console.error(err)
+    //          }
+    //       };
+    //       getMusicList()
+    //     }, [MusicCollectionRef])
+
+   
+    useEffect(() => {
+      const getMusicList = async () => {
+          try {
+              // Query Firestore for music, ordering by timestamp in ascending order
+              const querySnapshot = await getDocs(query(
+                  MusicCollectionRef,
+                  orderBy('addedAt', 'desc')
+              ));
+
+              // Map query snapshot to array of music items
+              const filteredData = querySnapshot.docs.map((doc) => ({
+                  ...doc.data(),
+                  id: doc.id
+              }));
+
+              // Set the music list state
+              setMusicList(filteredData);
+          } catch (error) {
+              console.error('Error getting latest music:', error);
+          }
+      };
+
+      getMusicList();
+  }, [MusicCollectionRef]);
+
+  // Render music component with musicList state
+
+
+  
        //drop
       //  const [showLinks, setShowLinks] = useState(false);
 
@@ -55,7 +86,7 @@ const  Music = () => {
                 slidesPerView={1}  // Default to 1 slide on small screens
                 breakpoints={{
                   1024: {
-                    slidesPerView: 2,  // Set to 2 slides on screens wider than 640px
+                    slidesPerView: 3,  // Set to 2 slides on screens wider than 640px
                   },
                 }}
                 navigation={true}
@@ -65,7 +96,7 @@ const  Music = () => {
                 {MusicList.map((music, index) => (
                   <SwiperSlide key={index}>
                     <div className=" flex flex-col justify-center items-center">
-                      <div className="wrapper w-[100%] md:w-[496px]">
+                      <div className="wrapper w-[100%] md:w-[400px]">
                         <img src={music.ImgUrl} className="max-w-[100%]" alt="music cover art"/>
                       </div>
                       <div>
