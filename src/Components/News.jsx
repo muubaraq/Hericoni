@@ -5,7 +5,7 @@ const News = () => {
   return (
     <>
       <section>
-        <div className="wrapper max-w-7xl mx-auto mt-20 text-[white]  ">
+        <div className="wrapper max-w-7xl mx-auto mt-20 text-[white]  px-4 lg:px-0">
         <h1 className="font-headerFont font-bold text-xl  underline">Latest News</h1>
         <div className="news-info mt-8">
             <p className="text-base">Hericoni released a new single titled <span className="font-bold">{'"Aje-ale" '}</span> ft sheliroy on March 1st.</p>
