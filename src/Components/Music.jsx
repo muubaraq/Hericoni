@@ -38,7 +38,7 @@ const  Music = () => {
     useEffect(() => {
       const getMusicList = async () => {
           try {
-              // Query Firestore for music, ordering by timestamp in ascending order
+              // Query Firestore for music, ordering by timestamp in descending order
               const querySnapshot = await getDocs(query(
                   MusicCollectionRef,
                   orderBy('addedAt', 'desc')
@@ -58,7 +58,7 @@ const  Music = () => {
       };
 
       getMusicList();
-  }, [MusicCollectionRef]);
+  },);
 
   // Render music component with musicList state
 

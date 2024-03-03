@@ -40,7 +40,7 @@ const Video = () => {
   useEffect(() => {
     const getVideoList = async () => {
         try {
-            // Query Firestore for music, ordering by timestamp in ascending order
+            // Query Firestore for music, ordering by timestamp in descending order
             const querySnapshot = await getDocs(query(
                 VideoCollectionRef,
                 orderBy('addedAt', 'desc')
@@ -60,7 +60,7 @@ const Video = () => {
     };
 
     getVideoList();
-}, [VideoCollectionRef]);
+},);
 
   return (
     <>
